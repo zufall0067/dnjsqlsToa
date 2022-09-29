@@ -7,7 +7,7 @@ public abstract class CharacterModule : MonoBehaviour
     public float defaultHP = 100f;
     public float defaultDF = 10f;
     public float defaultAD = 30f;
-    public float defaultSpeed = 3.3f;
+    public float defaultSpeed = 11.3f;
     public float defaultAS = 0.6f;
 
     public float currentHP;
@@ -17,7 +17,13 @@ public abstract class CharacterModule : MonoBehaviour
     public bool fisrtSkillAble;
     public bool secondSkillAble;
 
+    public bool jumpAble;
+    public RaycastHit groundChecker;
+    public int groundCheckerDistance = 2;
+
     public Rigidbody2D rigidbody;
+    public Vector2 mousePos, characterPos;
+    public float angle;
     public int Level;
 
     public IEnumerator CharacterUpdate(float timeDelay)
@@ -25,6 +31,9 @@ public abstract class CharacterModule : MonoBehaviour
         StartCoroutine(KeyInPut(timeDelay));
         while (true)
         {
+            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            angle = Mathf.Atan2(mousePos.y - characterPos.y, mousePos.x - characterPos.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             yield return new WaitForSeconds(timeDelay);
         }
     }
@@ -39,6 +48,7 @@ public abstract class CharacterModule : MonoBehaviour
 
         attackAble = true;
         Level = 1;
+        currentSpeed = defaultSpeed;
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -73,20 +83,27 @@ public abstract class CharacterModule : MonoBehaviour
     public IEnumerator KeyInPut(float timeDelay)
     {
         float moveX;
-        float moveY;
-        while(true)
+        while (true)
         {
-            moveY = moveX = 0;
+            moveX = 0;
             
             if (Input.GetKey(KeyCode.A))
-                moveX += 1;
+            {
+                moveX -= 1;
+                //rigidbody.AddForce(Vector3.left * currentSpeed, ForceMode2D.Impulse);
+            }
 
             if (Input.GetKey(KeyCode.D))
-                moveX -= 1;
+            {
+                moveX += 1;
+                //rigidbody.AddForce(Vector3.right * currentSpeed, ForceMode2D.Impulse);
+            }
 
             if (Input.GetKey(KeyCode.S))
-                moveY -= 1;
-
+            {
+                rigidbody.AddForce(Vector3.down, ForceMode2D.Impulse);
+            }
+                
             if (Input.GetKey(KeyCode.Q))
                 FirstSkill();
 
@@ -94,14 +111,22 @@ public abstract class CharacterModule : MonoBehaviour
                 SecondSkill();
 
             if (Input.GetMouseButton(0))
-                Attack(defaultAD, defaultAS);
+            {
+                //Attack(defaultAD, defaultAS);
+            }
 
-            if (Input.GetKey(KeyCode.Space))
-                rigidbody.AddForce(Vector3.up * 2, ForceMode2D.Impulse);
+            if (Input.GetKey(KeyCode.Space) && jumpAble == true)
+            {
+                jumpAble = false;
+                rigidbody.AddForce(Vector3.up * 6.5f, ForceMode2D.Impulse);
+            }
 
-            Debug.Log("ÀÔ·Â³¡");
-            transform.Translate(new Vector3(moveX, moveY, 1).normalized * Time.deltaTime * currentSpeed);
-
+            //if (transform.rotation.z > 90 || transform.rotation.z > -90)
+            //    moveX *= -1;
+                
+            
+            transform.Translate(Vector3.right * moveX * currentSpeed * Time.deltaTime);
+            characterPos = transform.position;
             yield return new WaitForSeconds(timeDelay);
         }
     }
@@ -121,5 +146,13 @@ public abstract class CharacterModule : MonoBehaviour
     {
         yield return new WaitForSeconds(coolTime);
         secondSkillAble = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            jumpAble = true;
+        }
     }
 }

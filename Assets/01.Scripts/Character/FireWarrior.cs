@@ -6,8 +6,9 @@ public class FireWarrior : CharacterModule
 {
     public override void AttackAnimation()
     {
-        throw new System.NotImplementedException();
+
     }
+
     public override void FirstSkill()
     {
         throw new System.NotImplementedException();
