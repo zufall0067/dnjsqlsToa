@@ -25,6 +25,7 @@ public abstract class CharacterModule : MonoBehaviour
     public int Level;
 
     public GameObject attackEffect;
+    public Transform firePos;
 
     public IEnumerator CharacterUpdate(float timeDelay)
     {
@@ -33,7 +34,7 @@ public abstract class CharacterModule : MonoBehaviour
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             angle = Mathf.Atan2(mousePos.y - characterPos.y, mousePos.x - characterPos.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            firePos.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             yield return new WaitForSeconds(timeDelay);
         }
     }

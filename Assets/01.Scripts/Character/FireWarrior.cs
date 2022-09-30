@@ -7,7 +7,8 @@ public class FireWarrior : CharacterModule
     public override void AttackAnimation(float Angle)
     {
         GameObject clone = attackEffect;
-        Instantiate(clone);
+        Debug.Log(this.name);
+        Instantiate(clone, firePos.position + firePos.forward * 1, Quaternion.Euler(0,0,Angle));
     }
 
     public override void FirstSkill()
