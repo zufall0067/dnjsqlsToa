@@ -18,13 +18,13 @@ public abstract class CharacterModule : MonoBehaviour
     public bool secondSkillAble;
 
     public bool jumpAble;
-    public RaycastHit groundChecker;
-    public int groundCheckerDistance = 2;
 
     public Rigidbody2D rigidbody;
     public Vector2 mousePos, characterPos;
     public float angle;
     public int Level;
+
+    public GameObject attackEffect;
 
     public IEnumerator CharacterUpdate(float timeDelay)
     {
@@ -60,19 +60,19 @@ public abstract class CharacterModule : MonoBehaviour
         currentHP -= 1;
     }
 
-    public void Attack(float AD, float AS)
+    public void Attack(float AD, float AS, float Angle)
     {
         if (attackAble == false)
             return;
 
         attackAble = false;
 
-        AttackAnimation();
+        AttackAnimation(Angle);
 
         StartCoroutine(AttackDelayChecker(AS));
     }
 
-    public abstract void AttackAnimation();
+    public abstract void AttackAnimation(float Angle);
 
     public IEnumerator AttackDelayChecker(float AS)
     {
@@ -112,7 +112,7 @@ public abstract class CharacterModule : MonoBehaviour
 
             if (Input.GetMouseButton(0))
             {
-                //Attack(defaultAD, defaultAS);
+                Attack(defaultAD, defaultAS, angle);
             }
 
             if (Input.GetKey(KeyCode.Space) && jumpAble == true)
@@ -121,11 +121,8 @@ public abstract class CharacterModule : MonoBehaviour
                 rigidbody.AddForce(Vector3.up * 6.5f, ForceMode2D.Impulse);
             }
 
-            //if (transform.rotation.z > 90 || transform.rotation.z > -90)
-            //    moveX *= -1;
-                
             
-            transform.Translate(Vector3.right * moveX * currentSpeed * Time.deltaTime);
+            transform.Translate(Vector3.right * moveX * currentSpeed * Time.deltaTime, Space.World);
             characterPos = transform.position;
             yield return new WaitForSeconds(timeDelay);
         }

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class FireWarrior : CharacterModule
 {
-    public override void AttackAnimation()
+    public override void AttackAnimation(float Angle)
     {
-
+        GameObject clone = attackEffect;
+        Instantiate(clone);
     }
 
     public override void FirstSkill()

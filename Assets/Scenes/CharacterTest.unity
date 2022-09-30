@@ -299,12 +299,12 @@ MonoBehaviour:
   fisrtSkillAble: 0
   secondSkillAble: 0
   jumpAble: 0
-  groundCheckerDistance: 2
   rigidbody: {fileID: 0}
   mousePos: {x: 0, y: 0}
   characterPos: {x: 0, y: 0}
   angle: 0
   Level: 0
+  attackEffect: {fileID: 3275647764271466128, guid: 6620d6cf287a1314795d94218e998c8c, type: 3}
 --- !u!58 &1329845482
 CircleCollider2D:
   m_ObjectHideFlags: 0
