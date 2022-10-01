@@ -17,7 +17,7 @@ public class SpawnItem : MonoBehaviour
 
             GameObject item = Instantiate(Item);
 
-            Debug.Log("fafdsd");
+            Debug.Log(item.transform.position);
             item.transform.position = new Vector3(newX, newY);
 
             currTime = 0;
