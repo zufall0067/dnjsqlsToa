@@ -11,8 +11,8 @@ public class GamaManager : MonoBehaviour
 
     public void PlayerInIt()
     {
-        if(GameObject.FindObjectOfType<CharacterModule>().gameObject.GetComponent<CheckedPlayer>)
-        GameObject.FindObjectOfType<CharacterModule>().gameObject.AddComponent<CheckedPlayer>();
+        //if(GameObject.FindObjectOfType<CharacterModule>().gameObject.GetComponent<CheckedPlayer>)
+        //GameObject.FindObjectOfType<CharacterModule>().gameObject.AddComponent<CheckedPlayer>();
   
     }
 }
