@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FireWarrior : CharacterModule
 {
+    public GameObject firstSkillEffect2;
+    public GameObject firstSkillEffect3;
+
     public override void AttackAnimation(float Angle)
     {
         GameObject clone = attackEffect;
@@ -12,8 +15,32 @@ public class FireWarrior : CharacterModule
 
     public override void FirstSkill()
     {
-        throw new System.NotImplementedException();
+        if (fisrtSkillAble == false || Level <= 1)
+        {
+            return;
+        }
+
+        fisrtSkillAble = false;
+
+       StartCoroutine(FirstSkillCoroutine());
     }
+
+    public IEnumerator FirstSkillCoroutine()
+    {
+        GameObject clone = firstSkillEffect;
+        //GameObject clone2 = firstSkillEffect2;
+        GameObject clone3 = firstSkillEffect3;
+
+        //Instantiate(clone2, gameObject.transform);
+        Instantiate(clone3, gameObject.transform);
+
+        yield return new WaitForSeconds(2f);
+
+        Instantiate(clone, this.gameObject.transform.position, Quaternion.identity);
+
+        StartCoroutine(FirstSkillDelayChecker(1f));
+    }
+
     public override void SecondSkill()
     {
         throw new System.NotImplementedException();

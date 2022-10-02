@@ -7,12 +7,18 @@ public class GamaManager : MonoBehaviour
     private static GamaManager Instance;
     public static GamaManager instance { get { return Instance; } }
 
-    public GameObject[] playerChecker = new GameObject[2];
+    public List<GameObject> checkedPlayer = new List<GameObject>();
 
     public void PlayerInIt()
     {
-        if(GameObject.FindObjectOfType<CharacterModule>().gameObject.GetComponent<CheckedPlayer>)
-        GameObject.FindObjectOfType<CharacterModule>().gameObject.AddComponent<CheckedPlayer>();
+        GameObject temp;
+        temp = GameObject.FindObjectOfType<CharacterModule>().gameObject;
+        if (!GameObject.FindObjectOfType<CharacterModule>().gameObject.GetComponent<CheckedPlayer>())
+        {
+            GameObject.FindObjectOfType<CharacterModule>().gameObject.AddComponent<CheckedPlayer>();
+            checkedPlayer.Add(temp);
+        }
+        
   
     }
 }

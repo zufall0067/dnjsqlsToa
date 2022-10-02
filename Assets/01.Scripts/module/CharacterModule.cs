@@ -25,6 +25,9 @@ public abstract class CharacterModule : MonoBehaviour
     public int Level;
 
     public GameObject attackEffect;
+    public GameObject levelUpEffect;
+    public GameObject firstSkillEffect;
+    public GameObject secondSkillEffect;
     public Transform firePos;
 
     public IEnumerator CharacterUpdate(float timeDelay)
@@ -139,6 +142,13 @@ public abstract class CharacterModule : MonoBehaviour
             yield return new WaitForSeconds(timeDelay);
         }
     }
+
+    public void LevelUp()
+    {
+        Level++;
+        Instantiate(levelUpEffect, transform.position, Quaternion.identity);
+    }
+
 
     public abstract void FirstSkill();
    
