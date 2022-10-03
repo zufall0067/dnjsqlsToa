@@ -43,10 +43,10 @@ public abstract class CharacterModule : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawCube(transform.position, new Vector3(2f,1f,1f));
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.DrawCube(transform.position, new Vector3(2f,1f,1f));
+    //}
 
     public void Init(float HP, float DF, float AD, float Speed, float AS)
     {
