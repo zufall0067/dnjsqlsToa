@@ -33,13 +33,19 @@ public abstract class CharacterModule : MonoBehaviour
     public IEnumerator CharacterUpdate(float timeDelay)
     {
         StartCoroutine(KeyInPut(timeDelay));
+        var CorutineTimeDelay = new WaitForSeconds(timeDelay);
         while (true)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             angle = Mathf.Atan2(mousePos.y - characterPos.y, mousePos.x - characterPos.x) * Mathf.Rad2Deg;
             //firePos.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            yield return new WaitForSeconds(timeDelay);
+            yield return CorutineTimeDelay;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawCube(transform.position, new Vector3(2f,1f,1f));
     }
 
     public void Init(float HP, float DF, float AD, float Speed, float AS)
@@ -98,6 +104,9 @@ public abstract class CharacterModule : MonoBehaviour
     public IEnumerator KeyInPut(float timeDelay)
     {
         float moveX;
+
+        var CorutineTimeDelay = new WaitForSeconds(timeDelay);
+
         while (true)
         {
             moveX = 0;
@@ -139,7 +148,7 @@ public abstract class CharacterModule : MonoBehaviour
             
             transform.Translate(Vector3.right * moveX * currentSpeed * Time.deltaTime, Space.World);
             characterPos = transform.position;
-            yield return new WaitForSeconds(timeDelay);
+            yield return CorutineTimeDelay;
         }
     }
 
