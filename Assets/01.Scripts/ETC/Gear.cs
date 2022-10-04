@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Gear : MonoBehaviour
 {
+    public float force;
     public GameObject deadEffect;
 
 
-
-    public void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            CharacterModule character = collision.GetComponent<CharacterModule>();
-            character.currentHP -= 10;
+            CharacterModule character = collision.gameObject.GetComponent<CharacterModule>();
+            character.currentHP -= 1;
+            character.rigidbody.AddForce(new Vector2(-4f,1f) * force,ForceMode2D.Impulse);
+
             if (character.currentHP < 0)
             {
                 character.currentHP = 0;
@@ -21,5 +23,8 @@ public class Gear : MonoBehaviour
             }
         }
     }
+
+
+
 
 }

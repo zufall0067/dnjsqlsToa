@@ -37,7 +37,7 @@ public class FireWarrior : CharacterModule
         yield return new WaitForSeconds(2f);
 
         Instantiate(clone, this.gameObject.transform.position, Quaternion.identity);
-        Collider2D collis = Physics2D.OverlapCircle(transform.position, 1f);
+        Collider2D collis = Physics2D.OverlapCircle(transform.position, 1f);    
 
         StartCoroutine(FirstSkillDelayChecker(1f));
     }

@@ -17,12 +17,12 @@ public class GearRotate : MonoBehaviour
     {
         if(rotate == 0)
         {
-            transform.Rotate(new Vector3(0,0,47) * Time.deltaTime * 1);
+            transform.Rotate(new Vector3(0,0,47) * rotate * Time.deltaTime * 1);
             rotate++;
         }
         else
         {
-            transform.Rotate(new Vector3(0, 0, 45) * Time.deltaTime);
+            transform.Rotate(new Vector3(0, 0, 45) * rotate * Time.deltaTime);
         }
     }
 }

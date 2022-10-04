@@ -155,7 +155,18 @@ public abstract class CharacterModule : MonoBehaviour
             }
 
 
-            transform.Translate(Vector3.right * moveX * currentSpeed * Time.deltaTime, Space.World);
+            var velocity = Vector2.right * moveX * currentSpeed * Time.deltaTime;
+            var curVel = rigidbody.velocity;
+
+            if((curVel.x>0&&moveX<0)|| (curVel.x < 0 && moveX > 0))
+            {
+                curVel.x = 0;
+                rigidbody.velocity = curVel;
+            }
+            float x = Mathf.Clamp(curVel.x, -7, 7);
+            curVel.x = x;
+            rigidbody.AddForce(velocity, ForceMode2D.Force);
+
             characterPos = transform.position;
             yield return CorutineTimeDelay;
         }
