@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 4616402563251002457}
   - component: {fileID: 1007159623}
   m_Layer: 0
-  m_Name: CFXR2 Firewall A (1)
+  m_Name: FireWarSecondSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

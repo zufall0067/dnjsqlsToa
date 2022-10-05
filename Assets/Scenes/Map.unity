@@ -1050,7 +1050,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &167058438
 CircleCollider2D:
@@ -1125,71 +1125,6 @@ MonoBehaviour:
   firstSkillEffect: {fileID: 0}
   secondSkillEffect: {fileID: 0}
   firePos: {fileID: 167058437}
---- !u!1001 &425926848
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4616402562695166144, guid: bc1a80fbc83a5a946961b312dfeba9bb, type: 3}
-      propertyPath: m_Range
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616402562695166144, guid: bc1a80fbc83a5a946961b312dfeba9bb, type: 3}
-      propertyPath: m_Intensity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616402563251002456, guid: bc1a80fbc83a5a946961b312dfeba9bb, type: 3}
-      propertyPath: m_Name
-      value: FireWarSecondSkill
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616402563251002460, guid: bc1a80fbc83a5a946961b312dfeba9bb, type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616402563251002460, guid: bc1a80fbc83a5a946961b312dfeba9bb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616402563251002460, guid: bc1a80fbc83a5a946961b312dfeba9bb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616402563251002460, guid: bc1a80fbc83a5a946961b312dfeba9bb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616402563251002460, guid: bc1a80fbc83a5a946961b312dfeba9bb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616402563251002460, guid: bc1a80fbc83a5a946961b312dfeba9bb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616402563251002460, guid: bc1a80fbc83a5a946961b312dfeba9bb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616402563251002460, guid: bc1a80fbc83a5a946961b312dfeba9bb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616402563251002460, guid: bc1a80fbc83a5a946961b312dfeba9bb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616402563251002460, guid: bc1a80fbc83a5a946961b312dfeba9bb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4616402563251002460, guid: bc1a80fbc83a5a946961b312dfeba9bb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bc1a80fbc83a5a946961b312dfeba9bb, type: 3}
 --- !u!1 &556681605
 GameObject:
   m_ObjectHideFlags: 0
@@ -9087,6 +9022,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1161735004, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
+      propertyPath: secondSkillEffect
+      value: 
+      objectReference: {fileID: 4616402563251002456, guid: bc1a80fbc83a5a946961b312dfeba9bb, type: 3}
     - target: {fileID: 4675928466179683705, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
       propertyPath: m_Name
       value: FireWar
