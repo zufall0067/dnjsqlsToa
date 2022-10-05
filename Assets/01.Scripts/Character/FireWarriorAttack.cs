@@ -11,12 +11,12 @@ public class FireWarriorAttack : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector2.right / 4f);
+        transform.Translate(Vector2.right * Time.deltaTime);
     }
 
     public IEnumerator EffectTime()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
         Destroy(this.gameObject);
     }
 
