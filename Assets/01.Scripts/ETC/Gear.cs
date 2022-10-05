@@ -22,9 +22,5 @@ public class Gear : MonoBehaviour
                 character.CharacterDead();
             }
         }
-    }
-
-
-
-
+    }   
 }
