@@ -20,6 +20,12 @@ public abstract class CharacterModule : MonoBehaviour
     public bool fisrtSkillAble;
     public bool secondSkillAble;
 
+    public bool isIce;
+    public float iceTime;
+
+    public bool isSlow;
+    public float slowTime;
+
     public bool jumpAble;
 
     public Rigidbody2D rigidbody;
@@ -44,6 +50,18 @@ public abstract class CharacterModule : MonoBehaviour
         var CorutineTimeDelay = new WaitForSeconds(timeDelay);
         while (true)
         {
+            if(isIce)
+            {
+                iceTime -= 0.1f;
+            }
+            else
+            {
+                currentSpeed = defaultSpeed;
+            }
+            if(isSlow)
+            {
+                slowTime -= 0.1f;
+            }
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             angle = Mathf.Atan2(mousePos.y - characterPos.y, mousePos.x - characterPos.x) * Mathf.Rad2Deg;
             //firePos.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -77,6 +95,24 @@ public abstract class CharacterModule : MonoBehaviour
 
         currentHP -= 1;
         hpbar.value = currentHP;
+    }
+
+    public void slow()
+    {
+        slowTime = 0.25f;
+        if(!isSlow)
+        {
+            currentSpeed = currentSpeed / 2;
+        }
+    }
+
+    public void Ice()
+    {
+        iceTime = 2f;
+        if(!isIce)
+        {
+            currentSpeed = 0;
+        }
     }
 
     public void Attack(float AD, float AS, float Angle)
