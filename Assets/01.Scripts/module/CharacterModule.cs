@@ -17,6 +17,11 @@ public abstract class CharacterModule : MonoBehaviour
     public bool fisrtSkillAble;
     public bool secondSkillAble;
 
+    public bool isBurn;
+    public float burnTime;
+
+    public bool isIce;
+
     public bool jumpAble;
 
     public Rigidbody2D rigidbody;
@@ -36,6 +41,12 @@ public abstract class CharacterModule : MonoBehaviour
         var CorutineTimeDelay = new WaitForSeconds(timeDelay);
         while (true)
         {
+            if(isBurn)
+            {
+                burnTime -= 0.1f;
+                Damage(0.1f);
+            }
+
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             angle = Mathf.Atan2(mousePos.y - characterPos.y, mousePos.x - characterPos.x) * Mathf.Rad2Deg;
             //firePos.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -68,6 +79,16 @@ public abstract class CharacterModule : MonoBehaviour
              currentHP -= (damage - defaultDF);
         
         currentHP -= 1;
+    }
+
+    public void Burn()
+    {
+        burnTime = 3f;
+
+        if (!isBurn)
+        {
+            isBurn = true;                        
+        }
     }
 
     public void Attack(float AD, float AS, float Angle)
