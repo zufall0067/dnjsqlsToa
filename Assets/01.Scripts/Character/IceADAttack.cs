@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class IceADAttack : MonoBehaviour
 {
+    public GameObject myObject;
+
     Collider2D collision1;
     void Start()
     {
@@ -26,24 +28,11 @@ public class IceADAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && collision.gameObject != myObject)
         {
             collision1 = collision;
             collision.gameObject.GetComponent<CharacterModule>().Damage(10);
-            collision.gameObject.GetComponent<CharacterModule>().defaultSpeed = 750;
-            collision.gameObject.GetComponent<CharacterModule>().currentSpeed = 750;
-            StartCoroutine(Slow());
+            collision.gameObject.GetComponent<CharacterModule>().slow();
         }
-
     }
-
-    public IEnumerator Slow()
-    {
-        yield return new WaitForSeconds(0.25f);
-        collision1.gameObject.GetComponent<CharacterModule>().defaultSpeed = 1500;
-        collision1.gameObject.GetComponent<CharacterModule>().currentSpeed = 1500;
-    }
-
-
-
 }

@@ -10,7 +10,7 @@ public class IceAD : CharacterModule
     public override void AttackAnimation(float Angle)
     {
         GameObject clone = attackEffect;
-        Instantiate(clone, firePos.position + firePos.forward, Quaternion.Euler(0, 0, Angle));
+        Instantiate(clone, firePos.position + firePos.forward, Quaternion.Euler(0, 0, Angle)).transform.gameObject.GetComponent<IceADAttack>().myObject = this.myObject;
     }
 
     public override void FirstSkill()
@@ -36,7 +36,7 @@ public class IceAD : CharacterModule
 
         yield return new WaitForSeconds(2f);
 
-        Instantiate(clone, this.gameObject.transform.position, Quaternion.identity);
+        Instantiate(clone, this.gameObject.transform.position, Quaternion.identity).transform.gameObject.GetComponent<IceADFirstSkill>().myObject = this.myObject; 
         Collider2D collis = Physics2D.OverlapCircle(transform.position, 1f);
 
         StartCoroutine(FirstSkillDelayChecker(1f));

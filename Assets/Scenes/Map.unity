@@ -915,9 +915,9 @@ CompositeCollider2D:
   m_GameObject: {fileID: 127071735}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1173f2fdc174e114caf6a29f650b955f, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 0
@@ -952,7 +952,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127071735}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -960,7 +960,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1173f2fdc174e114caf6a29f650b955f, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -1137,8 +1137,20 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3581263686716176088, guid: 7dd012dfcce2008449a65e6c93882092, type: 3}
+      propertyPath: isSlow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581263686716176088, guid: 7dd012dfcce2008449a65e6c93882092, type: 3}
+      propertyPath: myObject
+      value: 
+      objectReference: {fileID: 1200934415}
+    - target: {fileID: 3581263686716176088, guid: 7dd012dfcce2008449a65e6c93882092, type: 3}
+      propertyPath: slowTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581263686716176088, guid: 7dd012dfcce2008449a65e6c93882092, type: 3}
       propertyPath: currentSpeed
-      value: 1500
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3581263686716176088, guid: 7dd012dfcce2008449a65e6c93882092, type: 3}
       propertyPath: defaultSpeed
@@ -2216,9 +2228,9 @@ CompositeCollider2D:
   m_GameObject: {fileID: 747443288}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1173f2fdc174e114caf6a29f650b955f, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 0
@@ -2257,7 +2269,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747443288}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2265,7 +2277,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1173f2fdc174e114caf6a29f650b955f, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -4982,9 +4994,9 @@ CompositeCollider2D:
   m_GameObject: {fileID: 836252574}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1173f2fdc174e114caf6a29f650b955f, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 0
@@ -5085,7 +5097,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836252574}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -5093,7 +5105,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1173f2fdc174e114caf6a29f650b955f, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -5373,6 +5385,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1200934415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3135441911094630870, guid: 7dd012dfcce2008449a65e6c93882092, type: 3}
+  m_PrefabInstance: {fileID: 486686157}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1301308805
 GameObject:
   m_ObjectHideFlags: 0
@@ -5419,9 +5436,9 @@ CompositeCollider2D:
   m_GameObject: {fileID: 1301308805}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1173f2fdc174e114caf6a29f650b955f, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 0
@@ -5522,7 +5539,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301308805}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -5530,7 +5547,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1173f2fdc174e114caf6a29f650b955f, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -8233,7 +8250,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1585617283
 Transform:
   m_ObjectHideFlags: 0
@@ -8745,15 +8762,25 @@ CompositeCollider2D:
   m_GameObject: {fileID: 1585617282}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1173f2fdc174e114caf6a29f650b955f, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1585617286}
+    m_ColliderPaths:
+    - - X: -180119984
+        Y: -100120000
+      - X: 180119984
+        Y: -100120000
+      - X: 180119984
+        Y: -89880000
+      - X: -180119984
+        Y: -89880000
   m_CompositePaths:
     m_Paths:
     - - {x: 18.01197, y: -10.012}
@@ -8770,7 +8797,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1585617282}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -8778,7 +8805,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1173f2fdc174e114caf6a29f650b955f, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
