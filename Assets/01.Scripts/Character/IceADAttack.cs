@@ -31,8 +31,8 @@ public class IceADAttack : MonoBehaviour
         if (collision.gameObject.tag == "Player" && collision.gameObject != myObject)
         {
             collision1 = collision;
-            collision.gameObject.GetComponent<CharacterModule>().Damage(10);
-            collision.gameObject.GetComponent<CharacterModule>().slow();
+            collision.gameObject.GetComponent<CharacterModule>().Damage(15);
+            collision.gameObject.GetComponent<CharacterModule>().Slow();
         }
     }
 }

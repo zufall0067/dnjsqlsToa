@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class CharacterModule : MonoBehaviour
 {
+    public Slider hpbar;
+
+
     public float defaultHP = 100f;
     public float defaultDF = 10f;
     public float defaultAD = 30f;
@@ -20,9 +24,11 @@ public abstract class CharacterModule : MonoBehaviour
     public bool isBurn;
     public float burnTime;
 
-    public bool isIce;
+    public float iceTime;
+    public float slowTime;
 
     public bool jumpAble;
+
 
     public Rigidbody2D rigidbody;
     public Vector2 mousePos, characterPos;
@@ -33,7 +39,13 @@ public abstract class CharacterModule : MonoBehaviour
     public GameObject levelUpEffect;
     public GameObject firstSkillEffect;
     public GameObject secondSkillEffect;
+    public GameObject myObject;
     public Transform firePos;
+
+    public void Update()
+    {
+        hpbar.value = (float)currentHP / defaultHP;
+    }
 
     public IEnumerator CharacterUpdate(float timeDelay)
     {
@@ -41,7 +53,30 @@ public abstract class CharacterModule : MonoBehaviour
         var CorutineTimeDelay = new WaitForSeconds(timeDelay);
         while (true)
         {
-            if(isBurn)
+            if (iceTime <= 0)
+            {
+                iceTime = 0;
+            }
+            if (slowTime <= 0)
+            {
+                slowTime = 0;
+            }
+
+            if (iceTime > 0)
+            {
+                currentSpeed = 0;
+                iceTime -= 1f * 0.01f;
+            }
+            else if (slowTime > 0)
+            {
+                slowTime -= 0.25f * 0.1f;
+                currentSpeed = defaultSpeed / 2;
+            }
+            else
+            {
+                currentSpeed = defaultSpeed;
+            }
+            if (isBurn)
             {
                 burnTime -= 0.1f;
                 Damage(0.1f);
@@ -71,14 +106,17 @@ public abstract class CharacterModule : MonoBehaviour
         Level = 1;
         currentSpeed = defaultSpeed;
         rigidbody = GetComponent<Rigidbody2D>();
+        myObject = this.gameObject;
     }
 
     public void Damage(float damage)
     {
         if (defaultDF - damage < 0)
              currentHP -= (damage - defaultDF);
-        
-        currentHP -= 1;
+        else
+            currentHP -= 1;
+        hpbar.value = currentHP;
+
     }
 
     public void Burn()
@@ -101,6 +139,16 @@ public abstract class CharacterModule : MonoBehaviour
         AttackAnimation(Angle);
 
         StartCoroutine(AttackDelayChecker(AS));
+    }
+
+    public void Ice()
+    {
+        iceTime = 2;
+    }
+
+    public void Slow()
+    {
+        slowTime = 0.25f;
     }
 
     public abstract void AttackAnimation(float Angle);
@@ -166,8 +214,19 @@ public abstract class CharacterModule : MonoBehaviour
                 rigidbody.AddForce(Vector3.up * 6.5f, ForceMode2D.Impulse);
             }
 
-            
-            transform.Translate(Vector3.right * moveX * currentSpeed * Time.deltaTime, Space.World);
+
+            var velocity = Vector2.right * moveX * currentSpeed * Time.deltaTime;
+            var curVel = rigidbody.velocity;
+
+            if ((curVel.x > 0 && moveX < 0) || (curVel.x < 0 && moveX > 0))
+            {
+                curVel.x = 0;
+                rigidbody.velocity = curVel;
+            }
+            float x = Mathf.Clamp(curVel.x, -7, 7);
+            curVel.x = x;
+            rigidbody.AddForce(velocity, ForceMode2D.Force);
+
             characterPos = transform.position;
             yield return CorutineTimeDelay;
         }

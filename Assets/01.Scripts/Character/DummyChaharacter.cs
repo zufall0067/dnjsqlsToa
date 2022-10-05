@@ -6,9 +6,9 @@ public class DummyChaharacter : CharacterModule
 {
     public void Start()
     {
-        StartCoroutine(CharacterUpdate(0.01f));
+        this.StartCoroutine(CharacterUpdate(0.01f));    
         Init(defaultHP,0,0,0,0);
-        StopCoroutine(this.KeyInPut(1));
+        StopCoroutine(this.KeyInPut(0.01f));
     }
 
     public override void AttackAnimation(float Angle)

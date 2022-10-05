@@ -14,7 +14,7 @@ public class Gear : MonoBehaviour
         {
             CharacterModule character = collision.gameObject.GetComponent<CharacterModule>();
             character.currentHP -= 1;
-            character.rigidbody.AddForce(new Vector2(-4f,1f) * force,ForceMode2D.Impulse);
+            character.rigidbody.AddForce(new Vector2(-4f, 1f) * force, ForceMode2D.Impulse);
 
             if (character.currentHP < 0)
             {
@@ -22,5 +22,5 @@ public class Gear : MonoBehaviour
                 character.CharacterDead();
             }
         }
-    }   
+    }
 }
