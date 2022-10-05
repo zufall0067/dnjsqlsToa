@@ -1,19 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public abstract class CharacterModule : MonoBehaviour
 {
-    public Slider hpbar;
-
     public float defaultHP = 100f;
     public float defaultDF = 10f;
     public float defaultAD = 30f;
     public float defaultSpeed = 11.3f;
     public float defaultAS = 0.6f;
 
-    public float currentHP = 100f;
+    public float currentHP;
     public float currentSpeed;
 
     public bool attackAble;
@@ -33,11 +30,6 @@ public abstract class CharacterModule : MonoBehaviour
     public GameObject secondSkillEffect;
     public Transform firePos;
 
-    public void Update()
-    {
-        hpbar.value = (float)currentHP / defaultHP;
-    }
-
     public IEnumerator CharacterUpdate(float timeDelay)
     {
         StartCoroutine(KeyInPut(timeDelay));
@@ -51,10 +43,10 @@ public abstract class CharacterModule : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawCube(transform.position, new Vector3(2f, 1f, 1f));
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.DrawCube(transform.position, new Vector3(2f,1f,1f));
+    //}
 
     public void Init(float HP, float DF, float AD, float Speed, float AS)
     {
@@ -73,10 +65,9 @@ public abstract class CharacterModule : MonoBehaviour
     public void Damage(float damage)
     {
         if (defaultDF - damage < 0)
-            currentHP -= (damage - defaultDF);
-
+             currentHP -= (damage - defaultDF);
+        
         currentHP -= 1;
-        hpbar.value = currentHP;
     }
 
     public void Attack(float AD, float AS, float Angle)
@@ -105,7 +96,7 @@ public abstract class CharacterModule : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    void OnBecameInvisible()
+    void OnBecameInvisible() 
     {
         CharacterDead();
     }
@@ -119,7 +110,7 @@ public abstract class CharacterModule : MonoBehaviour
         while (true)
         {
             moveX = 0;
-
+            
             if (Input.GetKey(KeyCode.A))
             {
                 moveX -= 1;
@@ -136,7 +127,7 @@ public abstract class CharacterModule : MonoBehaviour
             {
                 rigidbody.AddForce(Vector3.down, ForceMode2D.Impulse);
             }
-
+                
             if (Input.GetKey(KeyCode.Q))
                 FirstSkill();
 
@@ -154,19 +145,8 @@ public abstract class CharacterModule : MonoBehaviour
                 rigidbody.AddForce(Vector3.up * 6.5f, ForceMode2D.Impulse);
             }
 
-
-            var velocity = Vector2.right * moveX * currentSpeed * Time.deltaTime;
-            var curVel = rigidbody.velocity;
-
-            if((curVel.x>0&&moveX<0)|| (curVel.x < 0 && moveX > 0))
-            {
-                curVel.x = 0;
-                rigidbody.velocity = curVel;
-            }
-            float x = Mathf.Clamp(curVel.x, -7, 7);
-            curVel.x = x;
-            rigidbody.AddForce(velocity, ForceMode2D.Force);
-
+            
+            transform.Translate(Vector3.right * moveX * currentSpeed * Time.deltaTime, Space.World);
             characterPos = transform.position;
             yield return CorutineTimeDelay;
         }
@@ -180,7 +160,7 @@ public abstract class CharacterModule : MonoBehaviour
 
 
     public abstract void FirstSkill();
-
+   
 
     public IEnumerator FirstSkillDelayChecker(float coolTime)
     {

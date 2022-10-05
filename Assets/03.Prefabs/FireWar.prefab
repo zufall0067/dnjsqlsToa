@@ -631,9 +631,10 @@ GameObject:
   - component: {fileID: 4675928466179683709}
   - component: {fileID: 8623229873851383576}
   - component: {fileID: 1161735004}
+  - component: {fileID: 928737526}
   m_Layer: 5
   m_Name: FireWar
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -732,7 +733,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &8623229873851383576
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -748,7 +749,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.68
 --- !u!114 &1161735004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -765,11 +766,11 @@ MonoBehaviour:
   defaultDF: 10
   defaultAD: 30
   defaultSpeed: 11.3
-  defaultAS: 0.3
+  defaultAS: 0.7
   currentHP: 0
   currentSpeed: 0
   attackAble: 0
-  fisrtSkillAble: 0
+  fisrtSkillAble: 1
   secondSkillAble: 0
   jumpAble: 0
   rigidbody: {fileID: 0}
@@ -777,5 +778,30 @@ MonoBehaviour:
   characterPos: {x: 0, y: 0}
   angle: 0
   Level: 0
-  attackEffect: {fileID: 3275647764271466128, guid: 6620d6cf287a1314795d94218e998c8c, type: 3}
+  attackEffect: {fileID: 1727626132299242, guid: b0bc1b6b391734647b9bb142bafc0819, type: 3}
+  levelUpEffect: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
+  firstSkillEffect: {fileID: 8052194273820596451, guid: 440845eb17a3c8c4aa121af86bb7047c, type: 3}
+  secondSkillEffect: {fileID: 0}
   firePos: {fileID: 4675928465722106336}
+  firstSkillEffect2: {fileID: 2492171890709127703, guid: 1632d275c6113d64f81f1c16bcaa1b9b, type: 3}
+  firstSkillEffect3: {fileID: 499076238525393427, guid: 6a3e3f127590e804ba4d293764ce1b9c, type: 3}
+--- !u!95 &928737526
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4675928466179683705}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a115cfb558c52ae4ead103b01d41e067, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
