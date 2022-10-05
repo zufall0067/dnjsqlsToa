@@ -17,6 +17,10 @@ public abstract class CharacterModule : MonoBehaviour
     public bool fisrtSkillAble;
     public bool secondSkillAble;
 
+    public float iceTime;
+
+    public float slowTime;
+
     public bool jumpAble;
 
     public Rigidbody2D rigidbody;
@@ -28,6 +32,7 @@ public abstract class CharacterModule : MonoBehaviour
     public GameObject levelUpEffect;
     public GameObject firstSkillEffect;
     public GameObject secondSkillEffect;
+    public GameObject myObject;
     public Transform firePos;
 
     public IEnumerator CharacterUpdate(float timeDelay)
@@ -36,6 +41,30 @@ public abstract class CharacterModule : MonoBehaviour
         var CorutineTimeDelay = new WaitForSeconds(timeDelay);
         while (true)
         {
+            if (iceTime <= 0)
+            {
+                iceTime = 0;
+            }
+            if (slowTime <= 0)
+            {
+                slowTime = 0;
+            }
+
+            if (iceTime > 0)
+            {
+                currentSpeed = 0;
+                iceTime -= 1f * 0.01f;
+            }
+            else if (slowTime > 0)
+            {
+                slowTime -= 0.25f * 0.1f;
+                currentSpeed = defaultSpeed / 2;
+            }
+            else
+            {
+                currentSpeed = defaultSpeed;
+            }
+
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             angle = Mathf.Atan2(mousePos.y - characterPos.y, mousePos.x - characterPos.x) * Mathf.Rad2Deg;
             //firePos.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -60,6 +89,7 @@ public abstract class CharacterModule : MonoBehaviour
         Level = 1;
         currentSpeed = defaultSpeed;
         rigidbody = GetComponent<Rigidbody2D>();
+        myObject = this.gameObject;
     }
 
     public void Damage(float damage)
@@ -68,6 +98,16 @@ public abstract class CharacterModule : MonoBehaviour
              currentHP -= (damage - defaultDF);
         
         currentHP -= 1;
+    }
+
+    public void slow()
+    {
+        slowTime = 0.25f;
+    }
+
+    public void Ice()
+    {
+        iceTime = 2;
     }
 
     public void Attack(float AD, float AS, float Angle)
