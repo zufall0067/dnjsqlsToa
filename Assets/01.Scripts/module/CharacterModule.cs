@@ -24,6 +24,8 @@ public abstract class CharacterModule : MonoBehaviour
 
     public float slowTime;
 
+    public float bornTime;
+
     public bool jumpAble;
     public bool slowEnd;
 
@@ -122,6 +124,7 @@ public abstract class CharacterModule : MonoBehaviour
         slowEnd = true;
         iceTime = 2;
     }
+
 
     public void Attack(float AD, float AS, float Angle)
     {
