@@ -10,7 +10,7 @@ public abstract class CharacterModule : MonoBehaviour
     public float defaultHP = 100f;
     public float defaultDF = 10f;
     public float defaultAD = 30f;
-    public float defaultSpeed = 11.3f;
+    public float defaultSpeed = 800f;
     public float defaultAS = 0.6f;
 
     public float currentHP = 100f;
@@ -27,6 +27,8 @@ public abstract class CharacterModule : MonoBehaviour
     public float bornTime;
 
     public bool jumpAble;
+    public bool slowEnd;
+
 
     public Rigidbody2D rigidbody;
     public Vector2 mousePos, characterPos;
@@ -70,7 +72,7 @@ public abstract class CharacterModule : MonoBehaviour
                 slowTime -= 0.25f * 0.1f;
                 currentSpeed = defaultSpeed / 2;
             }
-            else
+            else if(slowEnd)
             {
                 currentSpeed = defaultSpeed;
             }
@@ -82,10 +84,6 @@ public abstract class CharacterModule : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawCube(transform.position, new Vector3(2f, 1f, 1f));
-    }
 
     public void Init(float HP, float DF, float AD, float Speed, float AS)
     {
@@ -96,6 +94,9 @@ public abstract class CharacterModule : MonoBehaviour
         defaultAS = AS;
 
         attackAble = true;
+        fisrtSkillAble = true;
+        secondSkillAble = true;
+
         Level = 1;
         currentSpeed = defaultSpeed;
         rigidbody = GetComponent<Rigidbody2D>();
@@ -113,11 +114,13 @@ public abstract class CharacterModule : MonoBehaviour
 
     public void slow()
     {
+        slowEnd = true;
         slowTime = 0.25f;
     }
 
     public void Ice()
     {
+        slowEnd = true;
         iceTime = 2;
     }
 
@@ -177,13 +180,13 @@ public abstract class CharacterModule : MonoBehaviour
 
             if (Input.GetKey(KeyCode.S))
             {
-                rigidbody.AddForce(Vector3.down, ForceMode2D.Impulse);
+                rigidbody.AddForce(Vector3.down / 2, ForceMode2D.Impulse);
             }
 
             if (Input.GetKey(KeyCode.Q))
                 FirstSkill();
 
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
                 SecondSkill();
 
             if (Input.GetMouseButton(0))
@@ -197,8 +200,9 @@ public abstract class CharacterModule : MonoBehaviour
                 rigidbody.AddForce(Vector3.up * 6.5f, ForceMode2D.Impulse);
             }
 
+            rigidbody.velocity = new Vector2(moveX * currentSpeed, rigidbody.velocity.y);
 
-            var velocity = Vector2.right * moveX * currentSpeed * Time.deltaTime;
+            /*var velocity = Vector2.right * moveX * currentSpeed * Time.deltaTime;
             var curVel = rigidbody.velocity;
 
             if((curVel.x>0&&moveX<0)|| (curVel.x < 0 && moveX > 0))
@@ -206,11 +210,15 @@ public abstract class CharacterModule : MonoBehaviour
                 curVel.x = 0;
                 rigidbody.velocity = curVel;
             }
+            else
+            {
+                curVel.x = 0;
+            }
             float x = Mathf.Clamp(curVel.x, -7, 7);
             curVel.x = x;
             rigidbody.AddForce(velocity, ForceMode2D.Force);
 
-            characterPos = transform.position;
+            characterPos = transform.position;*/
             yield return CorutineTimeDelay;
         }
     }
@@ -245,5 +253,11 @@ public abstract class CharacterModule : MonoBehaviour
         {
             jumpAble = true;
         }
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawCube(transform.position, new Vector3(2f, 1f, 1f));
     }
 }
