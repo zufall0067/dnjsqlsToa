@@ -9030,6 +9030,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireWar
       objectReference: {fileID: 0}
+    - target: {fileID: 4675928466179683705, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6742749653560189385, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
       propertyPath: m_RootOrder
       value: 6
