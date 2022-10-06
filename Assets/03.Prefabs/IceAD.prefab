@@ -252,7 +252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3135441910156466536}
   - component: {fileID: 3135441910156466539}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Circle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3135441910600758455}
   - component: {fileID: 3135441910600758454}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +408,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -430,7 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3135441910896847730}
   - component: {fileID: 3135441910896847733}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Circle (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,7 +522,7 @@ GameObject:
   - component: {fileID: 3581263686716176088}
   - component: {fileID: 1361451140}
   - component: {fileID: 1361451139}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: IceAD
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -620,13 +620,15 @@ MonoBehaviour:
   defaultHP: 100
   defaultDF: 10
   defaultAD: 30
-  defaultSpeed: 11.3
+  defaultSpeed: 800
   defaultAS: 0.6
   currentHP: 100
-  currentSpeed: 0
+  currentSpeed: 1000
   attackAble: 0
-  fisrtSkillAble: 0
-  secondSkillAble: 0
+  fisrtSkillAble: 1
+  secondSkillAble: 1
+  iceTime: 0
+  slowTime: 0
   jumpAble: 0
   rigidbody: {fileID: 0}
   mousePos: {x: 0, y: 0}
@@ -637,9 +639,11 @@ MonoBehaviour:
   levelUpEffect: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
   firstSkillEffect: {fileID: 1628744458893394, guid: e243632bb3aff9549abdcfcc2ef0c4f0, type: 3}
   secondSkillEffect: {fileID: 100008, guid: 1ca16f2a31fb6a548ad8954bed1d321f, type: 3}
+  myObject: {fileID: 3135441911094630870}
   firePos: {fileID: 2030801167028442087}
-  firstSkillEffect2: {fileID: 3135441911609700277}
-  firstSkillEffect3: {fileID: 3135441910156466537}
+  firstSkillEffect2: {fileID: 1844191813266838, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
+  firstSkillEffect3: {fileID: 1844191813266838, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
+  secondSkillEffect2: {fileID: 100004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
 --- !u!50 &1361451140
 Rigidbody2D:
   serializedVersion: 4
@@ -660,7 +664,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &1361451139
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -687,7 +691,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3135441911143443336}
   - component: {fileID: 3135441911143443339}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Circle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,7 +780,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3135441911439477060}
   - component: {fileID: 3135441911439477063}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Circle (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -865,7 +869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3135441911609700276}
   - component: {fileID: 3135441911609700279}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Circle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -932,7 +936,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -954,7 +958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3135441911893640333}
   - component: {fileID: 3135441911893640330}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite-0005
   m_TagString: Untagged
   m_Icon: {fileID: 0}

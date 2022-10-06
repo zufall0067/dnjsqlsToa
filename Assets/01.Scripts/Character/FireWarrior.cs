@@ -7,9 +7,6 @@ public class FireWarrior : CharacterModule
     public GameObject firstSkillEffect2;
     public GameObject firstSkillEffect3;
 
-    [Header("2번째 스킬")]
-    public GameObject secondSkillEffect;
-
     public override void AttackAnimation(float Angle)
     {
         GameObject clone = attackEffect;
