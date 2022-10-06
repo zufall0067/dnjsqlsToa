@@ -31,6 +31,11 @@ public class SkeAssAttack : MonoBehaviour
         {
             collision1 = collision;
             collision.gameObject.GetComponent<CharacterModule>().Damage(10);
+            if (collision.gameObject.GetComponent<CharacterModule>().currentSpeed == 0)
+            {
+                collision.gameObject.GetComponent<CharacterModule>().Damage(30);
+            }
         }
+
     }
 }

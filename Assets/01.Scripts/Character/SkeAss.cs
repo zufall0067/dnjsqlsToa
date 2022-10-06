@@ -88,10 +88,10 @@ public class SkeAss : CharacterModule
 
         var ins = Instantiate(clone, firePos.position + firePos.forward, Quaternion.Euler(0, 0, Mathf.Atan2(mousePos.y - characterPos.y, mousePos.x - characterPos.x) * Mathf.Rad2Deg));
         ins.transform.gameObject.GetComponent<SkeAssSecondSkill>().myObject = this.myObject;
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 30; i++)
         {
             yield return new WaitForSeconds(0.01f);
-            ins.transform.Translate(Vector2.right / 5f);
+            ins.transform.Translate(Vector2.right / 4f);
         }
         //Collider2D collis = Physics2D.OverlapCircle(transform.position, 1f);
 

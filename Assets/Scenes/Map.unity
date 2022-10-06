@@ -1211,11 +1211,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3581263686716176088, guid: 7dd012dfcce2008449a65e6c93882092, type: 3}
       propertyPath: currentSpeed
-      value: 1000
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3581263686716176088, guid: 7dd012dfcce2008449a65e6c93882092, type: 3}
       propertyPath: defaultSpeed
-      value: 1500
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3581263686716176088, guid: 7dd012dfcce2008449a65e6c93882092, type: 3}
       propertyPath: fisrtSkillAble
@@ -8316,7 +8316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1585617283
 Transform:
   m_ObjectHideFlags: 0
@@ -8836,7 +8836,17 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1585617286}
+    m_ColliderPaths:
+    - - X: -180119984
+        Y: -100120000
+      - X: 180119984
+        Y: -100120000
+      - X: 180119984
+        Y: -89880000
+      - X: -180119984
+        Y: -89880000
   m_CompositePaths:
     m_Paths:
     - - {x: 18.01197, y: -10.012}
@@ -8873,6 +8883,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1608718596, guid: 56549e3073529124784e598097618353, type: 3}
+      propertyPath: defaultSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1608718596, guid: 56549e3073529124784e598097618353, type: 3}
       propertyPath: firstSkillEffect
       value: 
