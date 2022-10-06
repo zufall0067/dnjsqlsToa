@@ -5168,11 +5168,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 169270653304697583, guid: 4510b884b20194346be39b0495b7f55c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 169270653304697583, guid: 4510b884b20194346be39b0495b7f55c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1076757759954359738, guid: 4510b884b20194346be39b0495b7f55c, type: 3}
       propertyPath: m_RootOrder
@@ -5229,6 +5229,10 @@ PrefabInstance:
     - target: {fileID: 6745870080366047953, guid: 4510b884b20194346be39b0495b7f55c, type: 3}
       propertyPath: m_Name
       value: PuchWar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745870080366047953, guid: 4510b884b20194346be39b0495b7f55c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4510b884b20194346be39b0495b7f55c, type: 3}
@@ -5456,7 +5460,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1200934415 stripped
 GameObject:
@@ -9047,11 +9051,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3605222112508491778, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3605222112508491778, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4675928464592440518, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
       propertyPath: m_Layer
@@ -9139,7 +9143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4675928466179683705, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4675928466179683705, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
       propertyPath: m_TagString
