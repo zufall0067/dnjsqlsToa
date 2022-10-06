@@ -76,6 +76,7 @@ public abstract class CharacterModule : MonoBehaviour
             }
 
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            characterPos = transform.position;
             angle = Mathf.Atan2(mousePos.y - characterPos.y, mousePos.x - characterPos.x) * Mathf.Rad2Deg;
             //firePos.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             yield return CorutineTimeDelay;
