@@ -25,6 +25,8 @@ public abstract class CharacterModule : MonoBehaviour
     public float slowTime;
 
     public bool jumpAble;
+    public bool slowEnd;
+
 
     public Rigidbody2D rigidbody;
     public Vector2 mousePos, characterPos;
@@ -68,7 +70,7 @@ public abstract class CharacterModule : MonoBehaviour
                 slowTime -= 0.25f * 0.1f;
                 currentSpeed = defaultSpeed / 2;
             }
-            else
+            else if(slowEnd)
             {
                 currentSpeed = defaultSpeed;
             }
@@ -90,6 +92,9 @@ public abstract class CharacterModule : MonoBehaviour
         defaultAS = AS;
 
         attackAble = true;
+        fisrtSkillAble = true;
+        secondSkillAble = true;
+
         Level = 1;
         currentSpeed = defaultSpeed;
         rigidbody = GetComponent<Rigidbody2D>();
@@ -107,11 +112,13 @@ public abstract class CharacterModule : MonoBehaviour
 
     public void slow()
     {
+        slowEnd = true;
         slowTime = 0.25f;
     }
 
     public void Ice()
     {
+        slowEnd = true;
         iceTime = 2;
     }
 
@@ -176,7 +183,7 @@ public abstract class CharacterModule : MonoBehaviour
             if (Input.GetKey(KeyCode.Q))
                 FirstSkill();
 
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
                 SecondSkill();
 
             if (Input.GetMouseButton(0))

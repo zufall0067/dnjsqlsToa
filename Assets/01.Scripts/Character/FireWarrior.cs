@@ -7,6 +7,8 @@ public class FireWarrior : CharacterModule
     public GameObject firstSkillEffect2;
     public GameObject firstSkillEffect3;
 
+    public float secondSkillTime;
+    public float secondSkillDelay;
     public override void AttackAnimation(float Angle)
     {
         GameObject clone = attackEffect;
@@ -36,19 +38,41 @@ public class FireWarrior : CharacterModule
 
         yield return new WaitForSeconds(2f);
 
-        Instantiate(clone, this.gameObject.transform.position, Quaternion.identity);
+        Instantiate(clone, this.gameObject.transform.position, Quaternion.identity).transform.GetComponent<FireWarSecondSkillCollider>().myObject = this.myObject;
 
         StartCoroutine(FirstSkillDelayChecker(1f));
     }
 
     public override void SecondSkill()
     {
+        if(!secondSkillAble || Level <= 2)
+        {
+            return;
+        }
+
+        secondSkillDelay = 5f;
+        secondSkillTime = 0;
+        secondSkillAble = false;
+
         GameObject clone = secondSkillEffect;
 
         currentSpeed = currentSpeed * 1.5f;
-        Instantiate(clone, this.gameObject.transform.position, Quaternion.identity);
+        Debug.Log(currentSpeed);
+        
+        StartCoroutine(SecendSkillCoroutine(clone));
+    }
 
-        StartCoroutine(SecondSkillDelayChecker(1f));
+    public IEnumerator SecendSkillCoroutine(GameObject clone)
+    {
+        var WaitSecond = new WaitForSeconds(0.08f);
+        while(secondSkillTime < secondSkillDelay)
+        {
+            secondSkillTime += 0.08f;
+            Instantiate(clone, this.gameObject.transform.position - new Vector3(0,1,0), Quaternion.identity).transform.GetComponent<FireWarSecondSkillCollider>().myObject = this.myObject;
+            yield return WaitSecond;
+        }
+        currentSpeed = defaultSpeed;
+        StartCoroutine(SecondSkillDelayChecker(10f));
     }
 
     private void Start()
