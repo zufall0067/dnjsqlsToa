@@ -7,6 +7,9 @@ public class FireWarrior : CharacterModule
     public GameObject firstSkillEffect2;
     public GameObject firstSkillEffect3;
 
+    [Header("2번째 스킬")]
+    public GameObject secondSkillEffect;
+
     public override void AttackAnimation(float Angle)
     {
         GameObject clone = attackEffect;
@@ -37,14 +40,18 @@ public class FireWarrior : CharacterModule
         yield return new WaitForSeconds(2f);
 
         Instantiate(clone, this.gameObject.transform.position, Quaternion.identity);
-        Collider2D collis = Physics2D.OverlapCircle(transform.position, 1f);    
 
         StartCoroutine(FirstSkillDelayChecker(1f));
     }
 
     public override void SecondSkill()
     {
-        throw new System.NotImplementedException();
+        GameObject clone = secondSkillEffect;
+
+        currentSpeed = currentSpeed * 1.5f;
+        Instantiate(clone, this.gameObject.transform.position, Quaternion.identity);
+
+        StartCoroutine(SecondSkillDelayChecker(1f));
     }
 
     private void Start()
