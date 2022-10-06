@@ -12,7 +12,8 @@ public class IceADSecondSkill : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && collision.gameObject != myObject)
         {
             character = GetComponent<CharacterModule>();
-            collision.gameObject.GetComponent<CharacterModule>().Damage(10);
+            collision.gameObject.GetComponent<CharacterModule>().Damage(20);
+            collision.gameObject.GetComponent<CharacterModule>().slow();
         }
     }
 }

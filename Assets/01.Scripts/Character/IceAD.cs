@@ -7,13 +7,13 @@ public class IceAD : CharacterModule
     public GameObject firstSkillEffect2;
     public GameObject firstSkillEffect3;
 
-    public GameObject secondSkillEffect1;
     public GameObject secondSkillEffect2;
 
     public override void AttackAnimation(float Angle)
     {
         GameObject clone = attackEffect;
-        Instantiate(clone, firePos.position + firePos.forward, Quaternion.Euler(0, 0, Angle)).transform.gameObject.GetComponent<IceADAttack>().myObject = this.myObject;
+        var ins = Instantiate(clone, firePos.position + firePos.forward, Quaternion.Euler(0, 0, Angle));
+        ins.transform.gameObject.GetComponent<IceADAttack>().myObject = this.myObject;
     }
 
     public override void FirstSkill()
@@ -58,17 +58,23 @@ public class IceAD : CharacterModule
 
     public IEnumerator SecondSkillCorutine()
     {
-        GameObject clone = secondSkillEffect1;
+        GameObject clone = secondSkillEffect;
         GameObject clone1 = secondSkillEffect2;
 
         Instantiate(clone1, gameObject.transform);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
-        Instantiate(clone, this.gameObject.transform.position, Quaternion.identity).transform.gameObject.GetComponent<IceADSecondSkill>().myObject = this.myObject;
+        var ins = Instantiate(clone, firePos.position + firePos.forward, Quaternion.Euler(0,0, Mathf.Atan2(mousePos.y - characterPos.y, mousePos.x - characterPos.x) * Mathf.Rad2Deg));
+        ins.transform.gameObject.GetComponent<IceADSecondSkill>().myObject = this.myObject;
+        for(int i = 0; i < 100; i++)
+        {
+            yield return new WaitForSeconds(0.01f);
+            ins.transform.Translate(Vector2.right / 5f);    
+        }
         //Collider2D collis = Physics2D.OverlapCircle(transform.position, 1f);
 
-        StartCoroutine(SecondSkillDelayChecker(1f));
+        StartCoroutine(SecondSkillDelayChecker(5f));    
     }
 
     private void Start()    

@@ -1230,6 +1230,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1844191813266838, guid: 968c924d2be019d4b9e67647551eec3e, type: 3}
     - target: {fileID: 3581263686716176088, guid: 7dd012dfcce2008449a65e6c93882092, type: 3}
+      propertyPath: secondSkillEffect
+      value: 
+      objectReference: {fileID: 100008, guid: 1ca16f2a31fb6a548ad8954bed1d321f, type: 3}
+    - target: {fileID: 3581263686716176088, guid: 7dd012dfcce2008449a65e6c93882092, type: 3}
       propertyPath: secondSkillEffect1
       value: 
       objectReference: {fileID: 100000, guid: aa3fed151f536ee49b583c6a3ac4a2e1, type: 3}
@@ -9120,11 +9124,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3605222112508491778, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3605222112508491778, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4675928464592440518, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
       propertyPath: m_Layer
@@ -9212,7 +9216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4675928466179683705, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4675928466179683705, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
       propertyPath: m_TagString
