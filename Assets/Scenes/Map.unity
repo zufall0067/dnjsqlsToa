@@ -1175,7 +1175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3135441911094630870, guid: 7dd012dfcce2008449a65e6c93882092, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3135441911143443337, guid: 7dd012dfcce2008449a65e6c93882092, type: 3}
       propertyPath: m_Layer
@@ -1209,6 +1209,10 @@ PrefabInstance:
       propertyPath: slowTime
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3581263686716176088, guid: 7dd012dfcce2008449a65e6c93882092, type: 3}
+      propertyPath: DeadEffect
+      value: 
+      objectReference: {fileID: 3432958286849152088, guid: 87ee7299dd44ed747af24dbb91bcd33b, type: 3}
     - target: {fileID: 3581263686716176088, guid: 7dd012dfcce2008449a65e6c93882092, type: 3}
       propertyPath: currentSpeed
       value: 10
@@ -1247,11 +1251,11 @@ PrefabInstance:
       objectReference: {fileID: 100004, guid: 757df604761b8ef42831192c70ee1099, type: 3}
     - target: {fileID: 4352494290941751951, guid: 7dd012dfcce2008449a65e6c93882092, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4352494290941751951, guid: 7dd012dfcce2008449a65e6c93882092, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dd012dfcce2008449a65e6c93882092, type: 3}
@@ -8884,6 +8888,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1608718596, guid: 56549e3073529124784e598097618353, type: 3}
+      propertyPath: DeadEffect
+      value: 
+      objectReference: {fileID: 3432958286849152088, guid: 87ee7299dd44ed747af24dbb91bcd33b, type: 3}
+    - target: {fileID: 1608718596, guid: 56549e3073529124784e598097618353, type: 3}
       propertyPath: defaultSpeed
       value: 10
       objectReference: {fileID: 0}
@@ -8898,6 +8906,10 @@ PrefabInstance:
     - target: {fileID: 2801841327371024054, guid: 56549e3073529124784e598097618353, type: 3}
       propertyPath: m_Name
       value: Ske
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801841327371024054, guid: 56549e3073529124784e598097618353, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5517759512735576241, guid: 56549e3073529124784e598097618353, type: 3}
       propertyPath: m_RootOrder

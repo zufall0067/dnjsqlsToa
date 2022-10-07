@@ -37,6 +37,7 @@ public abstract class CharacterModule : MonoBehaviour
 
     public GameObject attackEffect;
     public GameObject levelUpEffect;
+    public GameObject DeadEffect;
     public GameObject firstSkillEffect;
     public GameObject secondSkillEffect;
     public GameObject myObject;
@@ -77,6 +78,7 @@ public abstract class CharacterModule : MonoBehaviour
                 currentSpeed = defaultSpeed;
             }
 
+
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             characterPos = transform.position;
             angle = Mathf.Atan2(mousePos.y - characterPos.y, mousePos.x - characterPos.x) * Mathf.Rad2Deg;
@@ -111,6 +113,7 @@ public abstract class CharacterModule : MonoBehaviour
 
         currentHP -= 1;
         hpbar.value = currentHP;
+        CharacterDead();
     }
 
     public void slow()
@@ -148,8 +151,11 @@ public abstract class CharacterModule : MonoBehaviour
 
     public void CharacterDead()
     {
-
-        Destroy(this.gameObject);
+        if(currentHP <= 0)
+        {
+            Instantiate(DeadEffect, firePos.position, Quaternion.Euler(0, 0, 0));
+            Destroy(this.gameObject);
+        }
     }
 
     void OnBecameInvisible()
