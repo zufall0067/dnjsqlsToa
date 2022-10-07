@@ -5,7 +5,7 @@ using UnityEngine;
 public class FireWarrior : CharacterModule
 {
     public GameObject firstSkillEffect2;
-    public GameObject firstSkillEffect3;
+    public GameObject firstSkillEffectBoom;
 
     public float secondSkillTime;
     public float secondSkillDelay;
@@ -30,15 +30,13 @@ public class FireWarrior : CharacterModule
     public IEnumerator FirstSkillCoroutine()
     {
         GameObject clone = firstSkillEffect;
-        //GameObject clone2 = firstSkillEffect2;
-        GameObject clone3 = firstSkillEffect3;
+        GameObject cloneBoom = firstSkillEffectBoom;
 
-        //Instantiate(clone2, gameObject.transform);
-        Instantiate(clone3, gameObject.transform);
+        Instantiate(clone, gameObject.transform);
 
         yield return new WaitForSeconds(2f);
 
-        Instantiate(clone, this.gameObject.transform.position, Quaternion.identity).transform.GetComponent<FireWarSecondSkillCollider>().myObject = this.myObject;
+        Instantiate(cloneBoom, this.gameObject.transform.position, Quaternion.identity).transform.GetComponent<FireManFisrtSkill>().myObject = this.myObject;
 
         StartCoroutine(FirstSkillDelayChecker(1f));
     }

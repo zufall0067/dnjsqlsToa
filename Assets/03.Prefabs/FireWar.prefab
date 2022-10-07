@@ -111,7 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4675928464592440521}
   - component: {fileID: 4675928464592440520}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite-0001 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4675928464991396134}
   - component: {fileID: 4675928464991396137}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Circle (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4675928465077449910}
   - component: {fileID: 4675928465077449913}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Circle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4675928465696249070}
   - component: {fileID: 4675928465696249073}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Circle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,7 +462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4675928465722106336}
   - component: {fileID: 4675928465722106339}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Circle (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4675928465811204454}
   - component: {fileID: 4675928465811204457}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,7 +640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4675928465945226079}
   - component: {fileID: 4675928465945226078}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Circle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -732,9 +732,9 @@ GameObject:
   - component: {fileID: 4675928466179683709}
   - component: {fileID: 8623229873851383576}
   - component: {fileID: 1161735004}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: FireWar
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -834,7 +834,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &8623229873851383576
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -863,30 +863,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9a336e8798b9da4ba2e8386e9b894fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpbar: {fileID: 0}
+  hpbar: {fileID: 3069500973298373188}
   defaultHP: 100
   defaultDF: 10
   defaultAD: 30
-  defaultSpeed: 11.3
+  defaultSpeed: 10
   defaultAS: 0.3
   currentHP: 0
   currentSpeed: 0
-  attackAble: 0
-  fisrtSkillAble: 0
-  secondSkillAble: 0
-  jumpAble: 0
+  attackAble: 1
+  fisrtSkillAble: 1
+  secondSkillAble: 1
+  iceTime: 0
+  slowTime: 0
+  bornTime: 0
+  jumpAble: 1
+  slowEnd: 0
   rigidbody: {fileID: 0}
   mousePos: {x: 0, y: 0}
   characterPos: {x: 0, y: 0}
   angle: 0
   Level: 0
   attackEffect: {fileID: 3275647764271466128, guid: 6620d6cf287a1314795d94218e998c8c, type: 3}
-  levelUpEffect: {fileID: 0}
-  firstSkillEffect: {fileID: 0}
-  secondSkillEffect: {fileID: 0}
-  firePos: {fileID: 4675928465722106336}
-  firstSkillEffect2: {fileID: 0}
-  firstSkillEffect3: {fileID: 0}
+  levelUpEffect: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
+  firstSkillEffect: {fileID: 2492171890709127703, guid: 1632d275c6113d64f81f1c16bcaa1b9b, type: 3}
+  secondSkillEffect: {fileID: 6071625210486429519, guid: d22f80d0122ffea4d8fd19d4f11ab319, type: 3}
+  myObject: {fileID: 0}
+  firePos: {fileID: 6742749653560189385}
+  firstSkillEffect2: {fileID: 499076238525393427, guid: 6a3e3f127590e804ba4d293764ce1b9c, type: 3}
+  firstSkillEffectBoom: {fileID: 8052194273820596451, guid: 440845eb17a3c8c4aa121af86bb7047c, type: 3}
+  secondSkillTime: 0
+  secondSkillDelay: 0
 --- !u!1 &6199072104749445847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,7 +1119,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -959.91, y: -538.51}
+  m_AnchoredPosition: {x: -974.7, y: -538.51}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3069500973298373188
