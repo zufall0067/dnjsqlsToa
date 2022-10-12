@@ -50,11 +50,14 @@ public class SceneChange : MonoBehaviour
         button3 = GameObject.Find("C3").transform.GetChild(1).GetComponent<Button>();
         button4 = GameObject.Find("C4").transform.GetChild(1).GetComponent<Button>();
 
-        
+        button.onClick.AddListener(() => CharacterSelect(this.gameObject.GetComponent<CharacterModule>()));
+        button2.onClick.AddListener(() => CharacterSelect(this.gameObject.GetComponent<CharacterModule>()));
+        button3.onClick.AddListener(() => CharacterSelect(this.gameObject.GetComponent<CharacterModule>()));
+        button4.onClick.AddListener(() => CharacterSelect(this.gameObject.GetComponent<CharacterModule>()));
     }
 
     public void MapSceneSetting()
     {
-
+        //GameObject clone = Instantiate(original,)
     }
 }
