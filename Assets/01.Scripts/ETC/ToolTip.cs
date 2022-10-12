@@ -40,4 +40,5 @@ public class ToolTip : MonoBehaviour
     {
         tooltip[3].SetActive(false);
     }
+
 }
