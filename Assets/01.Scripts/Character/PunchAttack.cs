@@ -6,15 +6,17 @@ public class PunchAttack : MonoBehaviour
 {
     public GameObject myObject;
 
+    PuchWarrior ph;
+
     Collider2D collision1;
     void Start()
     {
         StartCoroutine(EffectTime());
+        ph = GetComponent<PuchWarrior>();
     }
 
     public void Update()
     {
-
         transform.Translate(Vector2.right / 6f);
     }
 

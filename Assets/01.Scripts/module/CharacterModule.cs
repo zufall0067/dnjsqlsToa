@@ -45,7 +45,8 @@ public abstract class CharacterModule : MonoBehaviour
 
     public void Update()
     {
-        hpbar.value = (float)currentHP / defaultHP;
+        transform.position = firePos.position + new Vector3(0, 0, 0);
+        hpbar.value = (float)currentHP / (float)defaultHP;
     }
 
     public IEnumerator CharacterUpdate(float timeDelay)
