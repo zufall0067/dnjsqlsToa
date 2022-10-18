@@ -35,6 +35,10 @@ public class SkeAssAttack : MonoBehaviour
             {
                 collision.gameObject.GetComponent<CharacterModule>().Damage(30);
             }
+            else
+            {
+                collision.gameObject.GetComponent<CharacterModule>().Damage(10);
+            }
         }
 
     }
