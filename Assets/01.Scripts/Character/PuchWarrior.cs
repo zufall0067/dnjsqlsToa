@@ -123,20 +123,22 @@ public class PuchWarrior : CharacterModule
         yield return new WaitForSeconds(1f);
 
         var ins1 = Instantiate(clone, firePos.position + firePos.forward, Quaternion.Euler(0, 0, Mathf.Atan2(mousePos.y - characterPos.y, mousePos.x - characterPos.x) * Mathf.Rad2Deg));
-        var ins2 = Instantiate(clone, firePos.position + firePos.forward, Quaternion.Euler(0, 0, Mathf.Atan2(mousePos.y - characterPos.y, mousePos.x - characterPos.x) * Mathf.Rad2Deg));
-        ins = Instantiate(clone, firePos.position + firePos.forward, Quaternion.Euler(0, 0, Mathf.Atan2(mousePos.y - characterPos.y, mousePos.x - characterPos.x) * Mathf.Rad2Deg));
+        var ins2 = Instantiate(clone, firePos.position + firePos.up, Quaternion.Euler(0, 0, Mathf.Atan2(mousePos.y - characterPos.y, mousePos.x - characterPos.x) * Mathf.Rad2Deg));
+        ins = Instantiate(clone, firePos.position + firePos.right, Quaternion.Euler(0, 0, Mathf.Atan2(mousePos.y - characterPos.y, mousePos.x - characterPos.x) * Mathf.Rad2Deg));
         ins.transform.gameObject.GetComponent<PunchWarriorSceondSkill>().myObject = this.myObject;
         ins1.transform.gameObject.GetComponent<PunchWarriorSceondSkill>().myObject = this.myObject;
         ins2.transform.gameObject.GetComponent<PunchWarriorSceondSkill>().myObject = this.myObject;
         for (int i = 0; i < 200; i++)
         {
             yield return new WaitForSeconds(0.01f);
-            ins.transform.Translate(Vector2.right / 5f);
-            ins1.transform.Translate(Vector2.right / 5f);
-            ins2.transform.Translate(Vector2.right / 5f);
+            ins.transform.Translate(Vector2.right / 1f);
+            ins1.transform.Translate(Vector2.right / 2f);
+            ins2.transform.Translate(Vector2.right / 3f);
         }
         //Collider2D collis = Physics2D.OverlapCircle(transform.position, 1f);
         Destroy(ins);
+        Destroy(ins1);
+        Destroy(ins2);
 
         StartCoroutine(SecondSkillDelayChecker(5f));
     }
