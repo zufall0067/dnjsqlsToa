@@ -8,11 +8,10 @@ public class PuchWarrior : CharacterModule
     public Slider Hpbar;
 
     public GameObject firstSkillEffect3;
-
-
     public GameObject secondSkillEffect2;
-
     public GameObject attackEffect1;
+
+    public Transform position;
 
     public float delayTime;
     public float endTime = 5f;
@@ -128,6 +127,7 @@ public class PuchWarrior : CharacterModule
         ins.transform.gameObject.GetComponent<PunchWarriorSceondSkill>().myObject = this.myObject;
         ins1.transform.gameObject.GetComponent<PunchWarriorSceondSkill>().myObject = this.myObject;
         ins2.transform.gameObject.GetComponent<PunchWarriorSceondSkill>().myObject = this.myObject;
+
         for (int i = 0; i < 200; i++)
         {
             yield return new WaitForSeconds(0.01f);
