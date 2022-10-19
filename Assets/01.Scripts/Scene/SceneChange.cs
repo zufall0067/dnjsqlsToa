@@ -13,6 +13,16 @@ public class SceneChange : MonoBehaviour
     {
         DontDestroyOnLoad(this);
     }
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
     public void CharacterLoadScene()
     {
@@ -34,6 +44,7 @@ public class SceneChange : MonoBehaviour
     {
         if(scene.name.Equals("ChangeCharacterScene"))
         {
+            Debug.Log("a");
             ChangeCharacterSceneSetting();
         }
 
@@ -43,20 +54,12 @@ public class SceneChange : MonoBehaviour
         }
     }
 
-    List<KeyValuePair<string, string>> keyValue = new List<KeyValuePair<string, string>>();
-    private void Awake()
-    {
-        keyValue.Add(new KeyValuePair<string, string>("C1","FirWar"));
-    }
     public void ChangeCharacterSceneSetting()
     {
-        for(int i=0;i<4;i++)
-        { 
-        }
-        button = GameObject.Find("C1").transform.GetChild(1).GetComponent<Button>();
-        button2 = GameObject.Find("C2").transform.GetChild(1).GetComponent<Button>();
-        button3 = GameObject.Find("C3").transform.GetChild(1).GetComponent<Button>();
-        button4 = GameObject.Find("C4").transform.GetChild(1).GetComponent<Button>();
+        button = GameObject.Find("FireWarButton").GetComponent<Button>();
+        button2 = GameObject.Find("IceADButton").GetComponent<Button>();
+        button3 = GameObject.Find("PuchWarButton").GetComponent<Button>();
+        button4 = GameObject.Find("SkeButton").GetComponent<Button>();
 
         button.onClick.AddListener(() => CharacterSelect("FireWar"));
         button2.onClick.AddListener(() => CharacterSelect("IceAD")); 
@@ -66,6 +69,6 @@ public class SceneChange : MonoBehaviour
 
     public void MapSceneSetting()
     {
-        GameObject clone = Instantiate(Resources.Load(characterModule), ,Quaternion.identity);
+        GameObject clone = Instantiate(Resources.Load<GameObject>(characterModule), Vector3.zero ,Quaternion.identity);
     }
 }
