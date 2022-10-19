@@ -200,15 +200,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6745870080366047953, guid: 4510b884b20194346be39b0495b7f55c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9161080657551590326, guid: 4510b884b20194346be39b0495b7f55c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9161080657551590326, guid: 4510b884b20194346be39b0495b7f55c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9221940911787529697, guid: 4510b884b20194346be39b0495b7f55c, type: 3}
       propertyPath: m_LocalScale.y
@@ -9479,13 +9479,17 @@ PrefabInstance:
       propertyPath: DeadEffect
       value: 
       objectReference: {fileID: 3432958286849152088, guid: 87ee7299dd44ed747af24dbb91bcd33b, type: 3}
+    - target: {fileID: 1161735004, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
+      propertyPath: attackEffect
+      value: 
+      objectReference: {fileID: 100004, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
     - target: {fileID: 4675928466179683705, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
       propertyPath: m_Name
       value: FireWar
       objectReference: {fileID: 0}
     - target: {fileID: 4675928466179683705, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6742749653560189385, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
       propertyPath: m_RootOrder
@@ -9533,11 +9537,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9136497569675373907, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9136497569675373907, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7020565e85dba6a459bca7f25a4b14de, type: 3}
