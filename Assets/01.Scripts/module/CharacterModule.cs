@@ -164,7 +164,7 @@ public abstract class CharacterModule : MonoBehaviour
         CharacterDead();
     }
 
-    public IEnumerator KeyInPut(float timeDelay)
+    public virtual IEnumerator KeyInPut(float timeDelay)
     {
         float moveX;
 

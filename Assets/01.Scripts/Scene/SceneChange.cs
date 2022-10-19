@@ -44,7 +44,6 @@ public class SceneChange : MonoBehaviour
     {
         if(scene.name.Equals("ChangeCharacterScene"))
         {
-            Debug.Log("a");
             ChangeCharacterSceneSetting();
         }
 
