@@ -23,7 +23,7 @@ public class HPControl : MonoBehaviour
     {
         for (int i = 0; i < obj.Count; i++)
         {
-            hp_bar[i].transform.position = camera.WorldToScreenPoint(obj[i].position + new Vector3(0, 1f, 0));
+            hp_bar[i].transform.position = camera.WorldToScreenPoint(obj[i].position + new Vector3(0, 2, 0));
         }
     }
 }

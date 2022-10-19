@@ -11,7 +11,6 @@ public class PuchWarrior : CharacterModule
     public GameObject secondSkillEffect2;
     public GameObject attackEffect1;
 
-    public Transform position;
 
     public float delayTime;
     public float endTime = 5f;
