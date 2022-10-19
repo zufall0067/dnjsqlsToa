@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FireWarriorAttack : MonoBehaviour
 {
+    public GameObject myObject;
+
     void Start()
     {
         StartCoroutine(EffectTime());
@@ -22,7 +24,7 @@ public class FireWarriorAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && collision.gameObject != myObject)
         {
             collision.gameObject.GetComponent<CharacterModule>().Damage(30);
         }

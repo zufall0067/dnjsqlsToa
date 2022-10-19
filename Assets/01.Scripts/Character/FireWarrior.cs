@@ -12,7 +12,8 @@ public class FireWarrior : CharacterModule
     public override void AttackAnimation(float Angle)
     {
         GameObject clone = attackEffect;
-        Instantiate(clone, firePos.position + firePos.forward, Quaternion.Euler(0,0,Angle));
+        var ins = Instantiate(clone, firePos.position + firePos.forward, Quaternion.Euler(0,0,Angle));
+        ins.transform.gameObject.GetComponent<FireWarriorAttack>().myObject = this.myObject;
     }
 
     public override void FirstSkill()
@@ -66,8 +67,9 @@ public class FireWarrior : CharacterModule
         while(secondSkillTime < secondSkillDelay)
         {
             secondSkillTime += 0.08f;
-            Instantiate(clone, this.gameObject.transform.position - new Vector3(0,1,0), Quaternion.identity).transform.GetComponent<FireWarSecondSkillCollider>().myObject = this.myObject;
+            var ins = Instantiate(clone, this.gameObject.transform.position - new Vector3(0,1,0), Quaternion.identity).transform.GetComponent<FireWarSecondSkillCollider>().myObject = this.myObject;
             yield return WaitSecond;
+
         }
         currentSpeed = defaultSpeed;
         StartCoroutine(SecondSkillDelayChecker(10f));
