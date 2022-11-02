@@ -29,6 +29,11 @@ public class SceneChange : MonoBehaviour
         SceneManager.LoadScene("Tutorial");
     }
 
+    public void MainLoadScene()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
+
     public void BattleStartLoadScene()
     {
         SceneManager.LoadScene("Map");

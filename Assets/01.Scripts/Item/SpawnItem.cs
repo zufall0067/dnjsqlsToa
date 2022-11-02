@@ -6,12 +6,14 @@ public class SpawnItem : MonoBehaviour
 {
     public GameObject Item;
     public float currTime;
+    public float deflutTime;
+
 
     void Update()
     {
         currTime += Time.deltaTime;
 
-        if (currTime > 60)
+        if (currTime > deflutTime)
         {
             float newX = Random.Range(-17.5f, 17.5f), newY = Random.Range(10.5f,9.5f);
 
