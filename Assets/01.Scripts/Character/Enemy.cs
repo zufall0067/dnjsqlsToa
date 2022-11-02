@@ -7,10 +7,12 @@ public class Enemy : CharacterModule
 {
     public CharacterModule characterModule;
     public Transform target;
+    public Rigidbody2D rb;
 
     private void Start()
     {
         Init(characterModule.defaultHP, characterModule.defaultDF, characterModule.defaultAD, characterModule.defaultSpeed, characterModule.defaultAS);
+        rb = GetComponent<Rigidbody2D>();
         StartCoroutine(CharacterUpdate(0.01f));
     }
 
@@ -18,7 +20,10 @@ public class Enemy : CharacterModule
     {
         while(true)
         {
-            this.gameObject.transform.DOMove(target.position, timeDelay);
+            if(target.position != this.transform.position)
+            {
+                rb.MovePosition(target.position);
+            }
             yield return new WaitForSeconds(timeDelay);
         }
         
