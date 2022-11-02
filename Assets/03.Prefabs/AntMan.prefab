@@ -737,6 +737,7 @@ GameObject:
   - component: {fileID: 2024230120914264862}
   - component: {fileID: 2024230120914264856}
   - component: {fileID: 3123355581491571069}
+  - component: {fileID: 8623229873675716665}
   m_Layer: 7
   m_Name: AntMan
   m_TagString: Player
@@ -809,7 +810,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.5283019, g: 0.519771, b: 0.51534355, a: 1}
+  m_Color: {r: 0.7924528, g: 0.73787826, b: 0.68330365, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -853,9 +854,52 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.044992983}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.7635307
+--- !u!114 &8623229873675716665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024230120914264860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbdccdc45169b6344b00042da20b368c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpbar: {fileID: 8568193837700089374}
+  defaultHP: 500
+  defaultDF: 10
+  defaultAD: 30
+  defaultSpeed: 10
+  defaultAS: 0.6
+  currentHP: 200
+  currentSpeed: 0
+  attackAble: 0
+  fisrtSkillAble: 0
+  secondSkillAble: 0
+  iceTime: 0
+  slowTime: 0
+  bornTime: 0
+  jumpAble: 0
+  slowEnd: 0
+  rigidbody: {fileID: 0}
+  mousePos: {x: 0, y: 0}
+  characterPos: {x: 0, y: 0}
+  angle: 0
+  Level: 0
+  attackEffect: {fileID: 6263782476919498309, guid: 1fd2749f2a4056446881dce86ed70c39, type: 3}
+  levelUpEffect: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
+  DeadEffect: {fileID: 3432958286849152088, guid: 87ee7299dd44ed747af24dbb91bcd33b, type: 3}
+  firstSkillEffect: {fileID: 100018, guid: a40b64bf23366dc42a892af2c6ff6140, type: 3}
+  secondSkillEffect: {fileID: 100000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
+  myObject: {fileID: 0}
+  firePos: {fileID: 99274554105182124}
+  Hpbar: {fileID: 8568193837700089374}
+  delayTime: 0
+  endTime: 5
 --- !u!1 &2418927500736850930
 GameObject:
   m_ObjectHideFlags: 0

@@ -41,4 +41,13 @@ public class ToolTip : MonoBehaviour
         tooltip[3].SetActive(false);
     }
 
+    public void ButtonClick4()
+    {
+        tooltip[4].SetActive(true);
+    }
+    public void ButtonClickExit4()
+    {
+        tooltip[4].SetActive(false);
+    }
+
 }

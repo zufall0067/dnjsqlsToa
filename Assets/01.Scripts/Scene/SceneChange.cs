@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SceneChange : MonoBehaviour
 {
-    public Button button, button2, button3, button4;
+    public Button button, button2, button3, button4,button5;
     public string characterModule;
 
     private void Start()
@@ -26,7 +26,7 @@ public class SceneChange : MonoBehaviour
 
     public void CharacterLoadScene()
     {
-        SceneManager.LoadScene("ChangeCharacterScene");
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void BattleStartLoadScene()
@@ -60,11 +60,13 @@ public class SceneChange : MonoBehaviour
         button2 = GameObject.Find("IceADButton").GetComponent<Button>();
         button3 = GameObject.Find("PuchWarButton").GetComponent<Button>();
         button4 = GameObject.Find("SkeButton").GetComponent<Button>();
+        button5 = GameObject.Find("AntButton").GetComponent<Button>();
 
         button.onClick.AddListener(() => CharacterSelect("FireWar"));
         button2.onClick.AddListener(() => CharacterSelect("IceAD")); 
         button3.onClick.AddListener(() => CharacterSelect("PuchWar"));
         button4.onClick.AddListener(() => CharacterSelect("Ske")); 
+        button5.onClick.AddListener(() => CharacterSelect("AntMan")); 
     }
 
     public void MapSceneSetting()

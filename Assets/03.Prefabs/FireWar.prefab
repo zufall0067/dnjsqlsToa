@@ -899,9 +899,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.020150423}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.7015046
 --- !u!114 &1161735004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -920,7 +920,7 @@ MonoBehaviour:
   defaultAD: 30
   defaultSpeed: 10
   defaultAS: 0.3
-  currentHP: 0
+  currentHP: 100
   currentSpeed: 0
   attackAble: 1
   fisrtSkillAble: 1

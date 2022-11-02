@@ -9,7 +9,7 @@ public class FireWarSecondSkillCollider : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && collision.gameObject != myObject)
         {
-            collision.gameObject.GetComponent<CharacterModule>().Damage(20);
+            collision.gameObject.GetComponent<CharacterModule>().Damage(2);
         }
     }
 }
