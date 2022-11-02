@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public abstract class CharacterModule : MonoBehaviour
 {
+    public bool isPlayer;
+
     public Slider hpbar;
 
+    [Header("±‚∫ª Ω∫≈»")]
     public float defaultHP = 100f;
     public float defaultDF = 10f;
     public float defaultAD = 30f;

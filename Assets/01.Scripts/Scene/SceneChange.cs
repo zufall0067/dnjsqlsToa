@@ -68,6 +68,8 @@ public class SceneChange : MonoBehaviour
 
     public void MapSceneSetting()
     {
-        GameObject clone = Instantiate(Resources.Load<GameObject>(characterModule), Vector3.zero ,Quaternion.identity);
+        GameObject clone = Resources.Load<GameObject>(characterModule);
+        clone.gameObject.GetComponent<CharacterModule>().isPlayer = true;
+        Instantiate(clone, Vector3.zero, Quaternion.identity);
     }
 }
