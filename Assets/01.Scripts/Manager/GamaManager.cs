@@ -7,18 +7,36 @@ public class GamaManager : MonoBehaviour
     private static GamaManager Instance;
     public static GamaManager instance { get { return Instance; } }
 
-    public List<GameObject> checkedPlayer = new List<GameObject>();
+    bool isPlay = false;
 
-    public void PlayerInIt()
+    float tick = 0f;
+
+    private void Start()
     {
-        GameObject temp;
-        temp = GameObject.FindObjectOfType<CharacterModule>().gameObject;
-        if (!GameObject.FindObjectOfType<CharacterModule>().gameObject.GetComponent<CheckedPlayer>())
+        isPlay = false;
+        tick = 0f;
+    }
+
+    public void DeadPlayer()
+    {
+        isPlay = false;
+    }
+
+    public void GameStart()
+    {
+        tick = 0f;
+        isPlay = true;
+
+
+    }
+
+    public IEnumerator TimeChecker()
+    {
+        WaitForSeconds waitForSeconds = new WaitForSeconds(0.01f);
+        while(isPlay)
         {
-            GameObject.FindObjectOfType<CharacterModule>().gameObject.AddComponent<CheckedPlayer>();
-            checkedPlayer.Add(temp);
+            yield return waitForSeconds;
+            tick += 0.01f;
         }
-        
-  
     }
 }
