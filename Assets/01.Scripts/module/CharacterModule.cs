@@ -11,9 +11,10 @@ public abstract class CharacterModule : MonoBehaviour
 
     [Header("기본 스탯")]
     public float defaultHP = 100f;
+    public float 디폴트에이치피 = 100f;
     public float defaultDF = 10f;
     public float defaultAD = 30f;
-    public float defaultSpeed = 800f;
+    public float defaultSpeed = 10;
     public float defaultAS = 0.6f;
 
     public float currentHP = 100f;

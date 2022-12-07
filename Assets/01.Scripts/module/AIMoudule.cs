@@ -9,10 +9,14 @@ public class AIMoudule : MonoBehaviour
     public Transform AITransform;
     public Transform target;
 
+    [Header("±‚∫ª Ω∫≈»")]
+    public float defaultHP;
+
     void Start()
     {
         AITransform = GetComponent<Transform>();
         rigidbody = GetComponent<Rigidbody2D>();
+        target = FindObjectOfType<CharacterModule>().gameObject.transform;
     }
 
     void FixedUpdate()
@@ -29,10 +33,13 @@ public class AIMoudule : MonoBehaviour
         }
     }
 
+    public void Damage()
+    {
+        Debug.Log("a");
+    }
+
     private void Update()
     {
         Debug.DrawRay(this.transform.position, Vector2.down, Color.red, 1f);
-
-        
     }
 }

@@ -26,7 +26,7 @@ public class SceneChange : MonoBehaviour
 
     public void CharacterLoadScene()
     {
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("ChangeCharacterScene");
     }
 
     public void MainLoadScene()

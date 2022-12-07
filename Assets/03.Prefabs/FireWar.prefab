@@ -34,7 +34,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -789,7 +789,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6742749653560189385
 Transform:
   m_ObjectHideFlags: 0
@@ -914,6 +914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9a336e8798b9da4ba2e8386e9b894fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 0
   hpbar: {fileID: 3034274263041659003}
   defaultHP: 100
   defaultDF: 10
@@ -935,9 +936,9 @@ MonoBehaviour:
   characterPos: {x: 0, y: 0}
   angle: 0
   Level: 0
-  attackEffect: {fileID: 3275647764271466128, guid: 6620d6cf287a1314795d94218e998c8c, type: 3}
+  attackEffect: {fileID: 100004, guid: 1c20c7996d683754db1f0f62a361952c, type: 3}
   levelUpEffect: {fileID: 8771972552311404799, guid: bbf9e36a48d6c5648a13889afab076fd, type: 3}
-  DeadEffect: {fileID: 0}
+  DeadEffect: {fileID: 3432958286849152088, guid: 87ee7299dd44ed747af24dbb91bcd33b, type: 3}
   firstSkillEffect: {fileID: 2492171890709127703, guid: 1632d275c6113d64f81f1c16bcaa1b9b, type: 3}
   secondSkillEffect: {fileID: 6071625210486429519, guid: d22f80d0122ffea4d8fd19d4f11ab319, type: 3}
   myObject: {fileID: 0}
