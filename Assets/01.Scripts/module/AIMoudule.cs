@@ -24,14 +24,7 @@ public class AIMoudule : MonoBehaviour
         rigidbody.velocity = new Vector2(target.position.x, target.position.y);
     }
 
-    public void SetTarget()
-    {
-        //Physics2D.OverlapBoxAll(this.transform.position, 3f);
-        if (Physics.Raycast(target.transform.position, Vector2.down, out hit, 1f))
-        {
-            target.transform.position = hit.transform.position;
-        }
-    }
+    private IEnumerator Attack
 
     public void Damage()
     {
